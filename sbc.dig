@@ -1,0 +1,1885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>runRealTime</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>clk</string>
+        </entry>
+        <entry>
+          <string>Frequency</string>
+          <int>100</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-20" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>clk</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>S1, 0 when pressed: go to run mode</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>s1_n</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>S2, 0 when pressed: reset</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>s2_n</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="620" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>RUN, 0 when pressed</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>run_n</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>DIP switch, ON = 0</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>dip_n</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="255" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="1140" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>entry address (program mode) or PC (run mode)</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>addr</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>6</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1260" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>instruction at addr</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>instr</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>14</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1580" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>output port Mem[14]</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>4</int>
+        </entry>
+      </elementAttributes>
+      <pos x="340" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>LED0-2, 0 = on</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>led_n</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1320" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>EdgeDetector.dig</elementName>
+      <elementAttributes/>
+      <pos x="480" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>EdgeDetector.dig</elementName>
+      <elementAttributes/>
+      <pos x="480" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>EdgeDetector.dig</elementName>
+      <elementAttributes/>
+      <pos x="480" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>EdgeDetector.dig</elementName>
+      <elementAttributes/>
+      <pos x="480" y="360"/>
+    </visualElement>
+    <visualElement>
+      <elementName>D_FF</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>s2_sample</string>
+        </entry>
+      </elementAttributes>
+      <pos x="640" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>8</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1,1,1,1,4</string>
+        </entry>
+      </elementAttributes>
+      <pos x="20" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>FrontPanel.dig</elementName>
+      <elementAttributes/>
+      <pos x="740" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>instr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="720" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>pc_clr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="920" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>running</string>
+        </entry>
+      </elementAttributes>
+      <pos x="920" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>step</string>
+        </entry>
+      </elementAttributes>
+      <pos x="920" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>6</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1040" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>mode</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1060" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>RAMDualPort</elementName>
+      <elementAttributes>
+        <entry>
+          <string>AddrBits</string>
+          <int>6</int>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>RAM_H</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>6</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1300" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes/>
+      <pos x="1280" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>RAMDualPort</elementName>
+      <elementAttributes>
+        <entry>
+          <string>AddrBits</string>
+          <int>6</int>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>RAM_L</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1300" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes/>
+      <pos x="1280" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>8,6</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>14</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1480" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>CPU_sbc.dig</elementName>
+      <elementAttributes/>
+      <pos x="180" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>step</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>pc_clr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>instr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="960" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="1060" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>1,1,1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>3</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1240" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>running</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1220" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>1_entry_back_reset</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clk s1_n s2_n enter_n back_n run_n dip_n addr instr out led_n
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 0 X X 7
+C 1 1 0 1 1 215 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+0 1 1 1 1 1 215 0 X X 5
+C 1 1 0 1 1 124 X X X X
+C 1 1 0 1 1 124 X X X X
+C 1 1 1 1 1 124 X X X X
+C 1 1 1 1 1 124 X X X X
+0 1 1 1 1 1 124 1 X X 7
+C 1 1 0 1 1 214 X X X X
+C 1 1 0 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+0 1 1 1 1 1 214 1 X X 5
+C 1 1 0 1 1 254 X X X X
+C 1 1 0 1 1 254 X X X X
+C 1 1 1 1 1 254 X X X X
+C 1 1 1 1 1 254 X X X X
+0 1 1 1 1 1 254 2 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 2 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 3 X X 7
+C 1 1 0 1 1 235 X X X X
+C 1 1 0 1 1 235 X X X X
+C 1 1 1 1 1 235 X X X X
+C 1 1 1 1 1 235 X X X X
+0 1 1 1 1 1 235 3 X X 5
+C 1 1 0 1 1 95 X X X X
+C 1 1 0 1 1 95 X X X X
+C 1 1 1 1 1 95 X X X X
+C 1 1 1 1 1 95 X X X X
+0 1 1 1 1 1 95 4 X X 7
+C 1 1 0 1 1 227 X X X X
+C 1 1 0 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+0 1 1 1 1 1 227 4 X X 5
+C 1 1 0 1 1 253 X X X X
+C 1 1 0 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+0 1 1 1 1 1 253 5 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 5 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 6 X X 7
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 6 X X 5
+C 1 1 0 1 1 249 X X X X
+C 1 1 0 1 1 249 X X X X
+C 1 1 1 1 1 249 X X X X
+C 1 1 1 1 1 249 X X X X
+0 1 1 1 1 1 249 7 X X 7
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 6 8198 X 7
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 5 2190 X 7
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 4 7170 X 7
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 3 5280 X 7
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 2 2190 X 7
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 1 10497 X 7
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 0 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 0 10371 X 7
+C 1 1 0 1 1 215 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+0 1 1 1 1 1 215 0 X X 5
+C 1 1 1 0 1 215 X X X X
+C 1 1 1 0 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+0 1 1 1 1 1 215 63 X X 7
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 0 10371 X 7</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>2_program1_single_step</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clk s1_n s2_n enter_n back_n run_n dip_n addr instr out led_n
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+0 1 1 1 1 1 215 0 X X 5
+C 1 1 0 1 1 124 X X X X
+C 1 1 0 1 1 124 X X X X
+C 1 1 1 1 1 124 X X X X
+C 1 1 1 1 1 124 X X X X
+0 1 1 1 1 1 124 1 X X 7
+C 1 1 0 1 1 214 X X X X
+C 1 1 0 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+0 1 1 1 1 1 214 1 X X 5
+C 1 1 0 1 1 254 X X X X
+C 1 1 0 1 1 254 X X X X
+C 1 1 1 1 1 254 X X X X
+C 1 1 1 1 1 254 X X X X
+0 1 1 1 1 1 254 2 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 2 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 3 X X 7
+C 1 1 0 1 1 235 X X X X
+C 1 1 0 1 1 235 X X X X
+C 1 1 1 1 1 235 X X X X
+C 1 1 1 1 1 235 X X X X
+0 1 1 1 1 1 235 3 X X 5
+C 1 1 0 1 1 95 X X X X
+C 1 1 0 1 1 95 X X X X
+C 1 1 1 1 1 95 X X X X
+C 1 1 1 1 1 95 X X X X
+0 1 1 1 1 1 95 4 X X 7
+C 1 1 0 1 1 227 X X X X
+C 1 1 0 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+0 1 1 1 1 1 227 4 X X 5
+C 1 1 0 1 1 253 X X X X
+C 1 1 0 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+0 1 1 1 1 1 253 5 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 5 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 6 X X 7
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 6 X X 5
+C 1 1 0 1 1 249 X X X X
+C 1 1 0 1 1 249 X X X X
+C 1 1 1 1 1 249 X X X X
+C 1 1 1 1 1 249 X X X X
+0 1 1 1 1 1 249 7 X X 7
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 0 10371 X 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 1 10497 X 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 2 2190 X 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 3 5280 3 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 4 7170 3 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 2 2190 3 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 3 5280 2 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 4 7170 2 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 2 2190 2 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 3 5280 1 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 4 7170 1 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 5 2190 1 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 6 8198 0 6
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 6 8198 0 6
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 6 X X 6
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 0 10371 X 7</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>3_program1_run_halt_pause</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clk s1_n s2_n enter_n back_n run_n dip_n addr instr out led_n
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+0 1 1 1 1 1 215 0 X X 5
+C 1 1 0 1 1 124 X X X X
+C 1 1 0 1 1 124 X X X X
+C 1 1 1 1 1 124 X X X X
+C 1 1 1 1 1 124 X X X X
+0 1 1 1 1 1 124 1 X X 7
+C 1 1 0 1 1 214 X X X X
+C 1 1 0 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+0 1 1 1 1 1 214 1 X X 5
+C 1 1 0 1 1 254 X X X X
+C 1 1 0 1 1 254 X X X X
+C 1 1 1 1 1 254 X X X X
+C 1 1 1 1 1 254 X X X X
+0 1 1 1 1 1 254 2 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 2 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 3 X X 7
+C 1 1 0 1 1 235 X X X X
+C 1 1 0 1 1 235 X X X X
+C 1 1 1 1 1 235 X X X X
+C 1 1 1 1 1 235 X X X X
+0 1 1 1 1 1 235 3 X X 5
+C 1 1 0 1 1 95 X X X X
+C 1 1 0 1 1 95 X X X X
+C 1 1 1 1 1 95 X X X X
+C 1 1 1 1 1 95 X X X X
+0 1 1 1 1 1 95 4 X X 7
+C 1 1 0 1 1 227 X X X X
+C 1 1 0 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+0 1 1 1 1 1 227 4 X X 5
+C 1 1 0 1 1 253 X X X X
+C 1 1 0 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+0 1 1 1 1 1 253 5 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 5 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 6 X X 7
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 6 X X 5
+C 1 1 0 1 1 249 X X X X
+C 1 1 0 1 1 249 X X X X
+C 1 1 1 1 1 249 X X X X
+C 1 1 1 1 1 249 X X X X
+0 1 1 1 1 1 249 7 X X 7
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 X X X 2
+repeat(640) C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 6 X 0 6
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+repeat(96) C 1 1 1 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 X X X 6
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 X X X X</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>4_program2_switch_echo</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clk s1_n s2_n enter_n back_n run_n dip_n addr instr out led_n
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 0 1 1 251 X X X X
+C 1 1 0 1 1 251 X X X X
+C 1 1 1 1 1 251 X X X X
+C 1 1 1 1 1 251 X X X X
+0 1 1 1 1 1 251 0 X X 5
+C 1 1 0 1 1 112 X X X X
+C 1 1 0 1 1 112 X X X X
+C 1 1 1 1 1 112 X X X X
+C 1 1 1 1 1 112 X X X X
+0 1 1 1 1 1 112 1 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 1 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 2 X X 7
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 2 X X 5
+C 1 1 0 1 1 255 X X X X
+C 1 1 0 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 3 X X 7
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+repeat(128) C 1 1 1 1 1 250 X X X X
+0 1 1 1 1 1 250 X X 5 2
+repeat(128) C 1 1 1 1 1 245 X X X X
+0 1 1 1 1 1 245 X X 10 2
+repeat(128) C 1 1 1 1 1 240 X X X X
+0 1 1 1 1 1 240 X X 15 2
+repeat(128) C 1 1 1 1 1 252 X X X X
+0 1 1 1 1 1 252 X X 3 2
+C 1 1 0 1 1 252 X X X X
+C 1 1 0 1 1 252 X X X X
+C 1 1 1 1 1 252 X X X X
+C 1 1 1 1 1 252 X X X X
+0 1 1 1 1 1 252 X X X 6</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="460"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>5_program3_count_to_5</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clk s1_n s2_n enter_n back_n run_n dip_n addr instr out led_n
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+0 1 1 1 1 1 215 0 X X 5
+C 1 1 0 1 1 127 X X X X
+C 1 1 0 1 1 127 X X X X
+C 1 1 1 1 1 127 X X X X
+C 1 1 1 1 1 127 X X X X
+0 1 1 1 1 1 127 1 X X 7
+C 1 1 0 1 1 214 X X X X
+C 1 1 0 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+0 1 1 1 1 1 214 1 X X 5
+C 1 1 0 1 1 126 X X X X
+C 1 1 0 1 1 126 X X X X
+C 1 1 1 1 1 126 X X X X
+C 1 1 1 1 1 126 X X X X
+0 1 1 1 1 1 126 2 X X 7
+C 1 1 0 1 1 250 X X X X
+C 1 1 0 1 1 250 X X X X
+C 1 1 1 1 1 250 X X X X
+C 1 1 1 1 1 250 X X X X
+0 1 1 1 1 1 250 2 X X 5
+C 1 1 0 1 1 240 X X X X
+C 1 1 0 1 1 240 X X X X
+C 1 1 1 1 1 240 X X X X
+C 1 1 1 1 1 240 X X X X
+0 1 1 1 1 1 240 3 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 3 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 4 X X 7
+C 1 1 0 1 1 253 X X X X
+C 1 1 0 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+0 1 1 1 1 1 253 4 X X 5
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 5 X X 7
+C 1 1 0 1 1 233 X X X X
+C 1 1 0 1 1 233 X X X X
+C 1 1 1 1 1 233 X X X X
+C 1 1 1 1 1 233 X X X X
+0 1 1 1 1 1 233 5 X X 5
+C 1 1 0 1 1 239 X X X X
+C 1 1 0 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+0 1 1 1 1 1 239 6 X X 7
+C 1 1 0 1 1 231 X X X X
+C 1 1 0 1 1 231 X X X X
+C 1 1 1 1 1 231 X X X X
+C 1 1 1 1 1 231 X X X X
+0 1 1 1 1 1 231 6 X X 5
+C 1 1 0 1 1 246 X X X X
+C 1 1 0 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+0 1 1 1 1 1 246 7 X X 7
+C 1 1 0 1 1 239 X X X X
+C 1 1 0 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+0 1 1 1 1 1 239 7 X X 5
+C 1 1 0 1 1 79 X X X X
+C 1 1 0 1 1 79 X X X X
+C 1 1 1 1 1 79 X X X X
+C 1 1 1 1 1 79 X X X X
+0 1 1 1 1 1 79 8 X X 7
+C 1 1 0 1 1 227 X X X X
+C 1 1 0 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+0 1 1 1 1 1 227 8 X X 5
+C 1 1 0 1 1 252 X X X X
+C 1 1 0 1 1 252 X X X X
+C 1 1 1 1 1 252 X X X X
+C 1 1 1 1 1 252 X X X X
+0 1 1 1 1 1 252 9 X X 7
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 9 X X 5
+C 1 1 0 1 1 246 X X X X
+C 1 1 0 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+0 1 1 1 1 1 246 10 X X 7
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 0 1 1 1 1 250 X X X X
+C 0 1 1 1 1 250 X X X X
+C 1 1 1 1 1 250 X X X X
+C 1 1 1 1 1 250 X X X X
+C 1 1 1 1 0 250 X X X X
+C 1 1 1 1 0 250 X X X X
+C 1 1 1 1 1 250 X X X X
+C 1 1 1 1 1 250 X X X X
+repeat(1344) C 1 1 1 1 1 250 X X X X
+0 1 1 1 1 1 250 9 X 5 6</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="500"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>5_program3_count_to_0</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clk s1_n s2_n enter_n back_n run_n dip_n addr instr out led_n
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 0 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+C 1 1 1 1 1 215 X X X X
+0 1 1 1 1 1 215 0 X X 5
+C 1 1 0 1 1 127 X X X X
+C 1 1 0 1 1 127 X X X X
+C 1 1 1 1 1 127 X X X X
+C 1 1 1 1 1 127 X X X X
+0 1 1 1 1 1 127 1 X X 7
+C 1 1 0 1 1 214 X X X X
+C 1 1 0 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+C 1 1 1 1 1 214 X X X X
+0 1 1 1 1 1 214 1 X X 5
+C 1 1 0 1 1 126 X X X X
+C 1 1 0 1 1 126 X X X X
+C 1 1 1 1 1 126 X X X X
+C 1 1 1 1 1 126 X X X X
+0 1 1 1 1 1 126 2 X X 7
+C 1 1 0 1 1 250 X X X X
+C 1 1 0 1 1 250 X X X X
+C 1 1 1 1 1 250 X X X X
+C 1 1 1 1 1 250 X X X X
+0 1 1 1 1 1 250 2 X X 5
+C 1 1 0 1 1 240 X X X X
+C 1 1 0 1 1 240 X X X X
+C 1 1 1 1 1 240 X X X X
+C 1 1 1 1 1 240 X X X X
+0 1 1 1 1 1 240 3 X X 7
+C 1 1 0 1 1 247 X X X X
+C 1 1 0 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+C 1 1 1 1 1 247 X X X X
+0 1 1 1 1 1 247 3 X X 5
+C 1 1 0 1 1 113 X X X X
+C 1 1 0 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+C 1 1 1 1 1 113 X X X X
+0 1 1 1 1 1 113 4 X X 7
+C 1 1 0 1 1 253 X X X X
+C 1 1 0 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+C 1 1 1 1 1 253 X X X X
+0 1 1 1 1 1 253 4 X X 5
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 5 X X 7
+C 1 1 0 1 1 233 X X X X
+C 1 1 0 1 1 233 X X X X
+C 1 1 1 1 1 233 X X X X
+C 1 1 1 1 1 233 X X X X
+0 1 1 1 1 1 233 5 X X 5
+C 1 1 0 1 1 239 X X X X
+C 1 1 0 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+0 1 1 1 1 1 239 6 X X 7
+C 1 1 0 1 1 231 X X X X
+C 1 1 0 1 1 231 X X X X
+C 1 1 1 1 1 231 X X X X
+C 1 1 1 1 1 231 X X X X
+0 1 1 1 1 1 231 6 X X 5
+C 1 1 0 1 1 246 X X X X
+C 1 1 0 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+0 1 1 1 1 1 246 7 X X 7
+C 1 1 0 1 1 239 X X X X
+C 1 1 0 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+C 1 1 1 1 1 239 X X X X
+0 1 1 1 1 1 239 7 X X 5
+C 1 1 0 1 1 79 X X X X
+C 1 1 0 1 1 79 X X X X
+C 1 1 1 1 1 79 X X X X
+C 1 1 1 1 1 79 X X X X
+0 1 1 1 1 1 79 8 X X 7
+C 1 1 0 1 1 227 X X X X
+C 1 1 0 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+C 1 1 1 1 1 227 X X X X
+0 1 1 1 1 1 227 8 X X 5
+C 1 1 0 1 1 252 X X X X
+C 1 1 0 1 1 252 X X X X
+C 1 1 1 1 1 252 X X X X
+C 1 1 1 1 1 252 X X X X
+0 1 1 1 1 1 252 9 X X 7
+C 1 1 0 1 1 223 X X X X
+C 1 1 0 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+C 1 1 1 1 1 223 X X X X
+0 1 1 1 1 1 223 9 X X 5
+C 1 1 0 1 1 246 X X X X
+C 1 1 0 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+C 1 1 1 1 1 246 X X X X
+0 1 1 1 1 1 246 10 X X 7
+C 1 0 1 1 1 255 X X X X
+C 1 0 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 0 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 0 255 X X X X
+C 1 1 1 1 1 255 X X X X
+C 1 1 1 1 1 255 X X X X
+repeat(384) C 1 1 1 1 1 255 X X X X
+0 1 1 1 1 1 255 9 X 0 6</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="560"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1280" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>instr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1540" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>BACK, 0 when pressed</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>back_n</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>ENTER / STEP, 0 when pressed</string>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>enter_n</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>dip</string>
+        </entry>
+      </elementAttributes>
+      <pos x="20" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="0"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>SW3</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>SW3</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1160" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>8</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>6,2</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1160" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>dip</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1140" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="0"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>dip</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1200" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>dip</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1300" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>mode</string>
+        </entry>
+      </elementAttributes>
+      <pos x="940" y="-60"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="1240" y="320"/>
+      <p2 x="1300" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="1360" y="160"/>
+      <p2 x="1480" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1500" y="160"/>
+      <p2 x="1540" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="160"/>
+      <p2 x="920" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="160"/>
+      <p2 x="180" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="160"/>
+      <p2 x="60" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="160"/>
+      <p2 x="480" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="160"/>
+      <p2 x="740" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="160"/>
+      <p2 x="1300" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1540" y="160"/>
+      <p2 x="1580" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="0"/>
+      <p2 x="1240" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="260"/>
+      <p2 x="480" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="260"/>
+      <p2 x="1300" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="100"/>
+      <p2 x="180" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="100"/>
+      <p2 x="120" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="100"/>
+      <p2 x="480" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="100"/>
+      <p2 x="740" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="100"/>
+      <p2 x="1040" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="-40"/>
+      <p2 x="1200" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="200"/>
+      <p2 x="920" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="200"/>
+      <p2 x="480" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="200"/>
+      <p2 x="180" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1280" y="200"/>
+      <p2 x="1300" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="200"/>
+      <p2 x="1200" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="200"/>
+      <p2 x="740" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="-20" y="40"/>
+      <p2 x="0" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="40"/>
+      <p2 x="480" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="40"/>
+      <p2 x="420" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="40"/>
+      <p2 x="160" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="40"/>
+      <p2 x="580" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="40"/>
+      <p2 x="1240" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="40"/>
+      <p2 x="720" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="360"/>
+      <p2 x="480" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="140"/>
+      <p2 x="180" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="140"/>
+      <p2 x="80" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="140"/>
+      <p2 x="740" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="140"/>
+      <p2 x="960" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="140"/>
+      <p2 x="1160" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="140"/>
+      <p2 x="1040" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1360" y="300"/>
+      <p2 x="1400" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="300"/>
+      <p2 x="480" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="300"/>
+      <p2 x="1300" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="460"/>
+      <p2 x="640" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="80"/>
+      <p2 x="180" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="80"/>
+      <p2 x="560" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="700" y="80"/>
+      <p2 x="740" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="80"/>
+      <p2 x="640" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="80"/>
+      <p2 x="1260" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="80"/>
+      <p2 x="340" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="80"/>
+      <p2 x="1040" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="400"/>
+      <p2 x="480" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="240"/>
+      <p2 x="1020" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="-20"/>
+      <p2 x="1280" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="-20"/>
+      <p2 x="1240" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="-20"/>
+      <p2 x="1060" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="1280" y="340"/>
+      <p2 x="1300" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="340"/>
+      <p2 x="1260" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="1400" y="180"/>
+      <p2 x="1480" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="180"/>
+      <p2 x="740" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="180"/>
+      <p2 x="920" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="180"/>
+      <p2 x="180" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="180"/>
+      <p2 x="560" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1240" y="180"/>
+      <p2 x="1300" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="20"/>
+      <p2 x="1240" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="20"/>
+      <p2 x="1060" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="280"/>
+      <p2 x="600" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="280"/>
+      <p2 x="1160" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="1180" y="280"/>
+      <p2 x="1300" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="120"/>
+      <p2 x="180" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="120"/>
+      <p2 x="100" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="120"/>
+      <p2 x="740" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="1080" y="120"/>
+      <p2 x="1220" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="120"/>
+      <p2 x="980" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="120"/>
+      <p2 x="1300" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="380"/>
+      <p2 x="620" y="380"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="60"/>
+      <p2 x="740" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="60"/>
+      <p2 x="180" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="60"/>
+      <p2 x="640" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="60"/>
+      <p2 x="940" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1000" y="60"/>
+      <p2 x="1020" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="60"/>
+      <p2 x="380" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="60"/>
+      <p2 x="960" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="0" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="140"/>
+      <p2 x="960" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="200"/>
+      <p2 x="640" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="240"/>
+      <p2 x="640" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="1540" y="160"/>
+      <p2 x="1540" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="80"/>
+      <p2 x="1220" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="120"/>
+      <p2 x="1220" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="40"/>
+      <p2 x="580" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="140"/>
+      <p2 x="80" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="40"/>
+      <p2 x="720" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="20"/>
+      <p2 x="1040" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="20" y="80"/>
+      <p2 x="20" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="120"/>
+      <p2 x="980" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="140"/>
+      <p2 x="600" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="1240" y="40"/>
+      <p2 x="1240" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1240" y="180"/>
+      <p2 x="1240" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="40"/>
+      <p2 x="160" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="40"/>
+      <p2 x="480" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="120"/>
+      <p2 x="100" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="140"/>
+      <p2 x="1060" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="40"/>
+      <p2 x="420" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="160"/>
+      <p2 x="420" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="260"/>
+      <p2 x="420" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="160"/>
+      <p2 x="620" y="380"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="300"/>
+      <p2 x="1260" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="-60"/>
+      <p2 x="940" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="-40"/>
+      <p2 x="940" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="120"/>
+      <p2 x="560" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="80"/>
+      <p2 x="560" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="160"/>
+      <p2 x="1200" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="-40"/>
+      <p2 x="1200" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="1400" y="180"/>
+      <p2 x="1400" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="100"/>
+      <p2 x="120" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="-20"/>
+      <p2 x="1020" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="140"/>
+      <p2 x="1020" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="60"/>
+      <p2 x="380" y="460"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

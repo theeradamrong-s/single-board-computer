@@ -1,0 +1,69 @@
+================================================================================
+MINI PROJECT: SINGLE-BOARD COMPUTER - HAND-ASSEMBLED PROGRAMS (HEX & SWITCHES)
+================================================================================
+
+Instruction Format (14 bits):
+  Bits [13:11] : Opcode (3 bits)
+  Bit  [10]    : Type   (1 bit)
+  Bits [9:7]   : Reg1   (3 bits)
+  Bits [6:4]   : Reg2   (3 bits)
+  Bits [3:0]   : Address / Immediate field (4 bits)
+
+Switch Entry Rule (Active Low in hardware, ON = 1):
+  - High Part (bits 13-8): Set switches 1-6 (SW1 = bit 8 ... SW6 = bit 13). Press ENTER.
+  - Low Part  (bits 7-0) : Set switches 1-8 (SW1 = bit 0 ... SW8 = bit 7). Press ENTER.
+
+--------------------------------------------------------------------------------
+PROGRAM 1: COUNTDOWN (Provided in Manual)
+Counts down from 3 to 0 on Display 1 (digit 4) and halts at address 06.
+--------------------------------------------------------------------------------
+Addr | Assembly           | Binary (14-bit)     | Hex  | High | Low  | Switches ON (High -> Low)
+-----|--------------------|---------------------|------|------|------|--------------------------------
+00   | LDI R1, 3          | 101 0 001 000 0011  | 2883 |  28  |  83  | High: 4,6       | Low: 1,2,8
+01   | LDI R2, 1          | 101 0 010 000 0001  | 2901 |  29  |  01  | High: 1,4,6     | Low: 1
+02   | STORE R1, Mem[14]  | 001 0 001 000 1110  | 088E |  08  |  8E  | High: 4         | Low: 2,3,4,8
+03   | SUB R1, R2         | 010 1 001 010 0000  | 14A0 |  14  |  A0  | High: 3,5       | Low: 6,8
+04   | BNZ 2              | 011 1 000 000 0010  | 1C02 |  1C  |  02  | High: 3,4,5     | Low: 2
+05   | STORE R1, Mem[14]  | 001 0 001 000 1110  | 088E |  08  |  8E  | High: 4         | Low: 2,3,4,8
+06   | BR 6               | 100 0 000 000 0110  | 2006 |  20  |  06  | High: 6         | Low: 2,3
+
+--------------------------------------------------------------------------------
+PROGRAM 2: SWITCH ECHO (Provided in Manual)
+Continuously reads DIP switches 1-4 (Mem[15]) and shows the value on Display 1.
+--------------------------------------------------------------------------------
+Addr | Assembly           | Binary (14-bit)     | Hex  | High | Low  | Switches ON (High -> Low)
+-----|--------------------|---------------------|------|------|------|--------------------------------
+00   | LOAD R1, Mem[15]   | 000 1 001 000 1111  | 048F |  04  |  8F  | High: 3         | Low: 1,2,3,4,8
+01   | STORE R1, Mem[14]  | 001 0 001 000 1110  | 088E |  08  |  8E  | High: 4         | Low: 2,3,4,8
+02   | BR 0               | 100 0 000 000 0000  | 2000 |  20  |  00  | High: 6         | Low: None
+
+--------------------------------------------------------------------------------
+PROGRAM 3: COUNT UP FROM 0 TO SWITCH VALUE (Custom Program - 10 Instructions)
+Meets all Section 6 requirements:
+  - Reads target N from DIP switches 1-4 (Mem[15]).
+  - Initializes counter R1 = 0 and step R3 = 1.
+  - Displays current count R1 on Mem[14] at every step (0, 1, 2, ..., N).
+  - Uses both BZ (to exit when R1 == N) and BNZ (to loop while R1 != N).
+  - Ends with self-branch BR 9 at address 09 (10 instructions total, fits in 0-15).
+--------------------------------------------------------------------------------
+Addr | Assembly           | Binary (14-bit)     | Hex  | High | Low  | Switches ON (High -> Low)
+-----|--------------------|---------------------|------|------|------|--------------------------------
+00   | LDI R1, 0          | 101 0 001 000 0000  | 2880 |  28  |  80  | High: 4,6       | Low: 8
+01   | LDI R3, 1          | 101 0 011 000 0001  | 2981 |  29  |  81  | High: 1,4,6     | Low: 1,8
+02   | LOAD R2, Mem[15]   | 000 1 010 000 1111  | 050F |  05  |  0F  | High: 1,3       | Low: 1,2,3,4
+03   | STORE R1, Mem[14]  | 001 0 001 000 1110  | 088E |  08  |  8E  | High: 4         | Low: 2,3,4,8
+04   | LOAD R4, R2        | 000 0 100 010 0000  | 0220 |  02  |  20  | High: 2         | Low: 6
+05   | SUB R4, R1         | 010 1 100 001 0000  | 1610 |  16  |  10  | High: 2,3,5     | Low: 5
+06   | BZ 9               | 011 0 000 000 1001  | 1809 |  18  |  09  | High: 4,5       | Low: 1,4
+07   | ADD R1, R3         | 010 0 001 011 0000  | 10B0 |  10  |  B0  | High: 5         | Low: 5,6,8
+08   | BNZ 3              | 011 1 000 000 0011  | 1C03 |  1C  |  03  | High: 3,4,5     | Low: 1,2
+09   | BR 9               | 100 0 000 000 1001  | 2009 |  20  |  09  | High: 6         | Low: 1,4
+
+Explanation of Program 3:
+1. Address 00-01: Initializes R1 = 0 (current counter) and R3 = 1 (increment step).
+2. Address 02: Reads the 4-bit target value N from DIP switches 1-4 (Mem[15]) into R2.
+3. Address 03: Outputs the current counter R1 to Display 1 (Mem[14]).
+4. Address 04-05: Copies target R2 into temporary register R4 (`LOAD R4, R2`), then computes `R4 = R4 - R1` (`SUB R4, R1`) to compare the counter against the target without destroying R1 or R2.
+5. Address 06: If `R4 == 0` (meaning `R1 == N`), `BZ 9` branches to the halt instruction at address 09.
+6. Address 07-08: Otherwise, increments `R1 = R1 + 1` (`ADD R1, R3`) and loops back to address 03 via `BNZ 3`.
+7. Address 09: `BR 9` loops to itself, triggering the hardware `halt` signal to automatically stop continuous execution.
